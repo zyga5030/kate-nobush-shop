@@ -1,79 +1,49 @@
 # Kate Nobush Shop
 
-A static shop page published free with GitHub Pages, edited through an admin panel
-that only ever runs on your own machine.
+Amazon affiliate link-in-bio shop, published free with GitHub Pages.
 
-## How the split works
+**Live:** https://zyga5030.github.io/kate-nobush-shop/
 
-GitHub Pages serves static files — there is no server, so anything shipped to a
-visitor's browser is readable by anyone. The admin features therefore aren't hidden
-behind a password; they're simply **not built into the published page**.
+## Two files, never confused
 
-| Folder | What it is | Published? |
+| File | Purpose | Admin UI |
 | --- | --- | --- |
-| `admin/` | The editor: pin/unpin, ad links, images, add/delete/reorder | No |
-| `src/` | Content (`data.json`), page template, stylesheet | No |
-| `docs/` | The built public site — plain HTML and CSS | **Yes** |
+| `Kate Nobush Shop.dc.html` | Private working copy, kept off GitHub | Yes |
+| `docs/index.html` | The public site GitHub Pages serves | **No — never add admin UI here** |
 
-`build.mjs` renders `src/` into `docs/`. It never reads `admin/`, so no editing UI
-can reach the live site. Products marked *hidden* are dropped during the build and
-never appear in the published HTML at all.
+Products live in the working copy's `localStorage` (`kn_products_v1`, `kn_reels_v2`).
+The public site has them baked in as static markup. They do not sync on their own —
+publishing *is* the sync step.
 
-## Editing the shop
+The published page carries no Add link, no Pin/Unpin, no delete, no admin gate, and
+no `localStorage` writes. It keeps only search, category chips, Featured, the product
+grid, the video row, follow buttons, and the affiliate disclosure.
 
-```bash
-npm run dev        # starts a local server on http://localhost:8080
-```
+## Publishing an update
 
-Then open **http://localhost:8080/admin/**.
+1. Regenerate `docs/index.html` from the working copy with every product baked in.
+2. Drop the three files into `docs/` here: `index.html`, `styles.css`, `avatar.jpg`.
+3. Commit and push. The live page updates in about a minute.
 
-1. Edit the shop name, tagline, accent color, social links, and products.
-2. Toggle **Pinned** to move an item into the Featured row; **Hidden** to keep it
-   off the site entirely.
-3. Click **Download data.json** and save the file over `src/data.json`.
-4. Rebuild and publish:
+## GitHub Pages setting
 
-```bash
-npm run build
-git add -A
-git commit -m "Update shop content"
-git push
-```
+**Settings → Pages → Deploy from a branch** — branch `claude/push-index-github-pc3x7z`,
+folder `/docs`.
 
-The live page updates within a minute or so.
+`docs/.nojekyll` is required: without it Jekyll strips paths beginning with `_`.
 
-Your edits autosave to the browser's local storage as you type, so closing the tab
-won't lose them. **Download data.json** is what makes them real — nothing is
-published until you save that file and rebuild.
+## Notes that cost time to relearn
 
-> Open the admin through `npm run dev`, not by double-clicking the HTML file.
-> Browsers block `fetch()` on `file://` URLs, so it can't read `src/data.json`
-> otherwise. (If you do open it directly, use **Load file…** to pick `data.json`
-> by hand.)
+- TikTok thumbnail URLs are signed and expire in ~24h, so the page re-fetches them at
+  runtime through oembed instead of hardcoding them. The profile photo is the
+  exception — oembed does not serve profile pictures, so it ships as `docs/avatar.jpg`.
+- A TikTok profile page returns no video list to any fetch; it renders client-side.
+  Individual video URLs only.
+- Amazon and TikTok both block scraping. When a fetch fails, the fix is to paste the
+  title, price, and image URL by hand — never to invent them.
+- Product photos stay full color with `object-fit: contain` on white. The design
+  system's `.grayscale` treatment is for editorial imagery only; the clothes are the
+  product, so the color is the point.
 
-## Turning on GitHub Pages
-
-In the repository: **Settings → Pages → Build and deployment**
-
-- Source: **Deploy from a branch**
-- Branch: `claude/push-index-github-pc3x7z`, folder: **`/docs`**
-- Save.
-
-The URL will be `https://zyga5030.github.io/kate-nobush-shop/`. First publish takes
-a couple of minutes.
-
-## Product fields
-
-| Field | Notes |
-| --- | --- |
-| `title` | Card heading |
-| `description` | Short blurb under the title |
-| `image` | Full image URL. Leave empty for a lettered color tile. |
-| `price` | Free text — `$24`, `From $12`, or blank |
-| `url` | Ad / affiliate link. Rendered with `rel="sponsored noopener"`. |
-| `badge` | Small corner label such as `Bestseller`. Blank for none. |
-| `pinned` | Shows in the Featured row |
-| `hidden` | Excluded from the build entirely |
-
-Only `http(s)` links are accepted for `url` and `image`; anything else is dropped at
-build time.
+The workflow for adding products and videos is documented in
+`skills/kate-nobush-shop/SKILL.md`.
