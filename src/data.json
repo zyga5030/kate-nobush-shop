@@ -1,0 +1,82 @@
+{
+  "site": {
+    "name": "Kate Nobush Shop",
+    "tagline": "Handpicked finds, one place.",
+    "description": "A curated shop of handpicked products and recommendations.",
+    "accent": "#c2410c",
+    "footerNote": "Some links on this page are affiliate links. If you buy through them I may earn a small commission at no extra cost to you.",
+    "links": [
+      { "label": "TikTok", "url": "" },
+      { "label": "Instagram", "url": "" },
+      { "label": "Etsy", "url": "" }
+    ]
+  },
+  "products": [
+    {
+      "id": "p01",
+      "title": "Sample Item 01",
+      "description": "Replace this description in the admin panel. Each product has a title, image, price, and link.",
+      "image": "",
+      "price": "$00.00",
+      "url": "https://example.com",
+      "badge": "Featured",
+      "pinned": true,
+      "hidden": false
+    },
+    {
+      "id": "p02",
+      "title": "Sample Item 02",
+      "description": "Pinned items appear in the Featured row at the top of the page.",
+      "image": "",
+      "price": "$00.00",
+      "url": "https://example.com",
+      "badge": "",
+      "pinned": true,
+      "hidden": false
+    },
+    {
+      "id": "p03",
+      "title": "Sample Item 03",
+      "description": "Unpinned items fall into the main grid below, in list order.",
+      "image": "",
+      "price": "$00.00",
+      "url": "https://example.com",
+      "badge": "",
+      "pinned": false,
+      "hidden": false
+    },
+    {
+      "id": "p04",
+      "title": "Sample Item 04",
+      "description": "Paste an image URL in the admin panel and it shows here. Empty images fall back to a lettered tile.",
+      "image": "",
+      "price": "$00.00",
+      "url": "https://example.com",
+      "badge": "",
+      "pinned": false,
+      "hidden": false
+    },
+    {
+      "id": "p05",
+      "title": "Sample Item 05",
+      "description": "Hidden items are stripped out at build time and never reach the public page.",
+      "image": "",
+      "price": "$00.00",
+      "url": "https://example.com",
+      "badge": "",
+      "pinned": false,
+      "hidden": false
+    },
+    {
+      "id": "p06",
+      "title": "Sample Item 06",
+      "description": "Add, delete, and reorder items in the admin panel, then export and rebuild.",
+      "image": "",
+      "price": "$00.00",
+      "url": "https://example.com",
+      "badge": "",
+      "pinned": false,
+      "hidden": false
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{name}}</title>
+<meta name="description" content="{{description}}">
+<meta property="og:title" content="{{name}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='{{accentEncoded}}'/></svg>">
+<link rel="stylesheet" href="./styles.css">
+<style>:root { --accent: {{accent}}; }</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><span class="dot"></span>{{name}}</a>
+    <nav class="social">{{socialLinks}}</nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>{{tagline}}</h1>
+      <p>{{description}}</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    {{featuredSection}}
+
+    <div class="toolbar">
+      <h2 class="section-title" id="all">All items</h2>
+      <input id="search" type="search" placeholder="Search items&hellip;" aria-label="Search items" autocomplete="off">
+    </div>
+    <ul class="grid" id="all-grid">
+{{allCards}}
+    </ul>
+    <p class="empty" id="no-results" hidden>No items match that search.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>{{footerNote}}</p>
+    <p>&copy; {{year}} {{name}}</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var input = document.getElementById('search');
+  var grid = document.getElementById('all-grid');
+  var empty = document.getElementById('no-results');
+  if (!input || !grid) return;
+  var cards = Array.prototype.slice.call(grid.children);
+  input.addEventListener('input', function () {
+    var q = input.value.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function (card) {
+      var match = !q || (card.dataset.search || '').indexOf(q) !== -1;
+      card.hidden = !match;
+      if (match) shown++;
+    });
+    empty.hidden = shown !== 0;
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kate Nobush Shop</title>
+<meta name="description" content="A curated shop of handpicked products and recommendations.">
+<meta property="og:title" content="Kate Nobush Shop">
+<meta property="og:description" content="A curated shop of handpicked products and recommendations.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23c2410c'/></svg>">
+<link rel="stylesheet" href="./styles.css">
+<style>:root { --accent: #c2410c; }</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><span class="dot"></span>Kate Nobush Shop</a>
+    <nav class="social"></nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Handpicked finds, one place.</h1>
+      <p>A curated shop of handpicked products and recommendations.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="toolbar"><h2 class="section-title">Featured</h2></div>
+    <ul class="grid featured">
+      <li class="card" data-search="sample item 01 replace this description in the admin panel. each product has a title, image, price, and link. featured">
+        <a class="card-media" href="https://example.com" target="_blank" rel="noopener sponsored"><div class="placeholder" aria-hidden="true">S</div><span class="badge">Featured</span></a>
+        <div class="card-body">
+          <h3><a href="https://example.com" target="_blank" rel="noopener sponsored">Sample Item 01</a></h3>
+          <p>Replace this description in the admin panel. Each product has a title, image, price, and link.</p>
+          <div class="card-foot"><span class="price">$00.00</span><a class="btn" href="https://example.com" target="_blank" rel="noopener sponsored">View</a></div>
+        </div>
+      </li>
+      <li class="card" data-search="sample item 02 pinned items appear in the featured row at the top of the page.">
+        <a class="card-media" href="https://example.com" target="_blank" rel="noopener sponsored"><div class="placeholder" aria-hidden="true">S</div></a>
+        <div class="card-body">
+          <h3><a href="https://example.com" target="_blank" rel="noopener sponsored">Sample Item 02</a></h3>
+          <p>Pinned items appear in the Featured row at the top of the page.</p>
+          <div class="card-foot"><span class="price">$00.00</span><a class="btn" href="https://example.com" target="_blank" rel="noopener sponsored">View</a></div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="toolbar">
+      <h2 class="section-title" id="all">All items</h2>
+      <input id="search" type="search" placeholder="Search items&hellip;" aria-label="Search items" autocomplete="off">
+    </div>
+    <ul class="grid" id="all-grid">
+      <li class="card" data-search="sample item 03 unpinned items fall into the main grid below, in list order.">
+        <a class="card-media" href="https://example.com" target="_blank" rel="noopener sponsored"><div class="placeholder" aria-hidden="true">S</div></a>
+        <div class="card-body">
+          <h3><a href="https://example.com" target="_blank" rel="noopener sponsored">Sample Item 03</a></h3>
+          <p>Unpinned items fall into the main grid below, in list order.</p>
+          <div class="card-foot"><span class="price">$00.00</span><a class="btn" href="https://example.com" target="_blank" rel="noopener sponsored">View</a></div>
+        </div>
+      </li>
+      <li class="card" data-search="sample item 04 paste an image url in the admin panel and it shows here. empty images fall back to a lettered tile.">
+        <a class="card-media" href="https://example.com" target="_blank" rel="noopener sponsored"><div class="placeholder" aria-hidden="true">S</div></a>
+        <div class="card-body">
+          <h3><a href="https://example.com" target="_blank" rel="noopener sponsored">Sample Item 04</a></h3>
+          <p>Paste an image URL in the admin panel and it shows here. Empty images fall back to a lettered tile.</p>
+          <div class="card-foot"><span class="price">$00.00</span><a class="btn" href="https://example.com" target="_blank" rel="noopener sponsored">View</a></div>
+        </div>
+      </li>
+      <li class="card" data-search="sample item 05 hidden items are stripped out at build time and never reach the public page.">
+        <a class="card-media" href="https://example.com" target="_blank" rel="noopener sponsored"><div class="placeholder" aria-hidden="true">S</div></a>
+        <div class="card-body">
+          <h3><a href="https://example.com" target="_blank" rel="noopener sponsored">Sample Item 05</a></h3>
+          <p>Hidden items are stripped out at build time and never reach the public page.</p>
+          <div class="card-foot"><span class="price">$00.00</span><a class="btn" href="https://example.com" target="_blank" rel="noopener sponsored">View</a></div>
+        </div>
+      </li>
+      <li class="card" data-search="sample item 06 add, delete, and reorder items in the admin panel, then export and rebuild.">
+        <a class="card-media" href="https://example.com" target="_blank" rel="noopener sponsored"><div class="placeholder" aria-hidden="true">S</div></a>
+        <div class="card-body">
+          <h3><a href="https://example.com" target="_blank" rel="noopener sponsored">Sample Item 06</a></h3>
+          <p>Add, delete, and reorder items in the admin panel, then export and rebuild.</p>
+          <div class="card-foot"><span class="price">$00.00</span><a class="btn" href="https://example.com" target="_blank" rel="noopener sponsored">View</a></div>
+        </div>
+      </li>
+    </ul>
+    <p class="empty" id="no-results" hidden>No items match that search.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Some links on this page are affiliate links. If you buy through them I may earn a small commission at no extra cost to you.</p>
+    <p>&copy; 2026 Kate Nobush Shop</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var input = document.getElementById('search');
+  var grid = document.getElementById('all-grid');
+  var empty = document.getElementById('no-results');
+  if (!input || !grid) return;
+  var cards = Array.prototype.slice.call(grid.children);
+  input.addEventListener('input', function () {
+    var q = input.value.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function (card) {
+      var match = !q || (card.dataset.search || '').indexOf(q) !== -1;
+      card.hidden = !match;
+      if (match) shown++;
+    });
+    empty.hidden = shown !== 0;
+  });
+})();
+</script>
+
+</body>
+</html>
